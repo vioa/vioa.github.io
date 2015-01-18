@@ -43,6 +43,8 @@
 <body>
 
   <div class="content">
+    <p><a href="https://play.google.com/store/apps/details?id=com.martinschurig.hnbk">HNBK Vertretungsplan App für Android herunterladen</a></p><br>
+    <p><a href="https://medium.com/@martinschurig/hnbk-stundenplan-vertretungsplan-app-34e13a556353">Mehr über die App erfahren</a></p><br><br>
     <p>Current => <span id="current"></span></p>
     <p>Next :: <span id="next"></span></p>
   </div>
@@ -70,6 +72,9 @@
     function getLink(calc) {
         var calculator;
         var weekNum = getWeekNumber(Date.now()) + (calc ? calc : 0)
+        if(weekNum < 10) {
+          weekNum = '0' + weekNum;
+        }
         var url = 'http://217.78.137.198:64004/c/' + weekNum + '/c00077.htm';
         var link = '<a target="_blank" href="' + url + '">Vertretungsplan</a>';
         return link;
